@@ -55,7 +55,7 @@ const Music = observer(() => {
             </TableRow>
             </TableHead>
             <TableBody>
-            {store.musicList.map((row) => (
+            {store.musicList.filter(item => store.selectedGenre !== 'all' ? item.genre === store.selectedGenre : item).map((row) => (
                 <TableRow
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

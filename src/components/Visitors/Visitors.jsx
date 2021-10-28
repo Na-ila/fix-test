@@ -52,7 +52,7 @@ const Visitors = observer(() => {
                 <TableCell>Имя</TableCell>
                 <TableCell align="center">RnB</TableCell>
                 <TableCell align="center">Hip-hop</TableCell>
-                <TableCell align="center">Electro</TableCell>
+                <TableCell align="center">Electrodance</TableCell>
                 <TableCell align="center">House</TableCell>
                 <TableCell align="center">Pop</TableCell>
                 <TableCell style={{width: '20px'}}/>
@@ -69,7 +69,7 @@ const Visitors = observer(() => {
                 </TableCell>
                 <TableCell align="center">{row.skills.includes('RnB') ? '+' : '-'}</TableCell>
                 <TableCell align="center">{row.skills.includes('Hip-hop') ? '+' : '-'}</TableCell>
-                <TableCell align="center">{row.skills.includes('Electro') ? '+' : '-'}</TableCell>
+                <TableCell align="center">{row.skills.includes('Electrodance') ? '+' : '-'}</TableCell>
                 <TableCell align="center">{row.skills.includes('House') ? '+' : '-'}</TableCell>
                 <TableCell align="center">{row.skills.includes('Pop') ? '+' : '-'}</TableCell>
                 <TableCell style={{width: '20px'}}>

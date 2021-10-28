@@ -68,9 +68,9 @@ const Filter = observer((props) => {
                             onClick={() => selectGenre('RnB')}                        
                         >RnB</Button>
                         <Button
-                            style={{backgroundColor: store.selectedGenre === 'Electrodance' ? blue[900] : blue[600]}}
-                            onClick={() => selectGenre('Electrodance')}
-                        >Electrodance</Button>
+                            style={{backgroundColor: store.selectedGenre === 'Electrohouse' ? blue[900] : blue[600]}}
+                            onClick={() => selectGenre('Electrohouse')}
+                        >Electrohouse</Button>
                         <Button
                             style={{backgroundColor: store.selectedGenre === 'Pop' ? blue[900] : blue[600]}}
                             onClick={() => selectGenre('Pop')}

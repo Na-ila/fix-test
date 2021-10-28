@@ -1,6 +1,12 @@
 import {makeAutoObservable} from 'mobx'
 
 class store {
+    dance = {
+        'RnB': ['RnB', 'Hip-hop'],
+        'Electrohouse': ['Electrodance', 'House'],
+        'Pop': ['Pop']
+    }
+    
     visitorList = [
         {
             id: 1,
@@ -112,7 +118,7 @@ class store {
         {
             id: 3,
             name: 'track 3',
-            genre: 'Electro'
+            genre: 'Electrohouse'
         },
         {
             id: 4,

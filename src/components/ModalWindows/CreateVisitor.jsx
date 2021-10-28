@@ -18,7 +18,7 @@ import Alert from '@mui/material/Alert';
 const defaultSkills = {
   "RnB": false,
   "Hip-hop": false,
-  "Electro": false,
+  "Electrodance": false,
   "House": false,
   "Pop": false,
 }

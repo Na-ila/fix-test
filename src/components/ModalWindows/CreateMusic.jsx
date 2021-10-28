@@ -15,7 +15,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Alert from '@mui/material/Alert';
 
-const genres = ['RnB', 'Electrodance', 'Pop']
+const genres = ['RnB', 'Electrohouse', 'Pop']
 
 const CreateMusic = observer(() => {
     const [name, setName] = React.useState('')
