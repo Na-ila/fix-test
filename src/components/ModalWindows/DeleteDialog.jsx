@@ -16,7 +16,7 @@ const DeleteDialog = observer(() => {
 
   const deleteVisitor = () => {
     if (store.deleteDialogText.id === 'music') {
-      store.deleteMusic(store.selectedMusic)
+      store.deleteMusic(store.selectedMusicToDelete)
     } else {
       store.deleteVisitor(store.selectedVisitor)
     }

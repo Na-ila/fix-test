@@ -126,6 +126,7 @@ class store {
             genre: 'RnB'
         },
     ]
+    selectedMusicToPlay = null
     createVisitorDialog = false
     createMusicDialog = false
     deleteDialog = false
@@ -136,7 +137,7 @@ class store {
     }
     selectedVisitor = null
     selectedPlace = 'all'
-    selectedMusic = null
+    selectedMusicToDelete = null
     selectedGenre = 'all'
     
     constructor() {
@@ -157,6 +158,10 @@ class store {
 
     deleteMusic(music) {
         this.musicList = this.musicList.filter(item => item.id !== music.id)
+    }
+
+    setSelectedMusicToPlay(music) {
+        this.selectedMusicToPlay = music
     }
 
     setCreateVisitorDialog(value) {
@@ -183,8 +188,8 @@ class store {
         this.selectedPlace = place
     }
 
-    setSelectedMusic(music) {
-        this.selectedMusic = music
+    setSelectedMusicToDelete(music) {
+        this.selectedMusicToDelete = music
     }
 
     setSelectedGenre(genre) {

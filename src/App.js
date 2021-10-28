@@ -1,8 +1,11 @@
 import React from 'react'
+import {observer} from 'mobx-react-lite'
 
+import store from './components/store/store'
 import Music from './components/Music'
 import Visitors from './components/Visitors'
 import Filter from './components/Filter'
+import CurrMusic from './components/CurrMusic'
 
 import { makeStyles } from '@mui/styles';
 import Paper from '@mui/material/Paper';
@@ -23,6 +26,11 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'flex-end',
     gap: 10
   },
+  musicBlock: {
+    display: 'flex',
+    gap: 20,
+    alignItems: 'flex-start'
+  },
   musicList: {
     display: 'flex',
     flexDirection: 'column',
@@ -31,15 +39,18 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const App = () => {
+const App = observer(() => {
   const classes = useStyles()
 
   return (
     <div className={classes.root}>
       <div className={classes.leftBlock}>
-        <div className={classes.musicList}>
-          <Filter/>
-          <Music/>
+        <div className={classes.musicBlock}>
+          <div className={classes.musicList}>
+            <Filter/>
+            <Music/>
+          </div>
+          <CurrMusic/>
         </div>
         <Paper>
           Animation
@@ -51,6 +62,6 @@ const App = () => {
       </div>
     </div>
   );
-}
+})
 
 export default App;

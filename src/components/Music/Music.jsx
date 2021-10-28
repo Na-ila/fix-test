@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {observer} from 'mobx-react-lite'
+import clsx from 'clsx'
 
 import store from '../store/store'
 import DeleteDialog from '../ModalWindows/DeleteDialog'
@@ -26,6 +27,15 @@ const useStyles = makeStyles(theme => ({
             color: 'white',
             fontWeight: 'bold'
         }
+    },
+    tableRow: {
+        '&:hover': {
+            backgroundColor: blue[100],
+            cursor: 'pointer'
+        }
+    },
+    selectedRow: {
+        backgroundColor: blue[100]
     }
 }))
 
@@ -39,7 +49,12 @@ const Music = observer(() => {
             text: 'Вы уверены, что хотите удалить этот трек?',
             btn: 'Удалить'
         })
-        store.setSelectedMusic(music);
+        store.setSelectedMusicToDelete(music);
+    }
+
+    const selectMusic = (e, track) => {
+        if (e.target.closest('th')) return
+        store.setSelectedMusicToPlay(track)
     }
     
   return (
@@ -57,14 +72,19 @@ const Music = observer(() => {
             <TableBody>
             {store.musicList.filter(item => store.selectedGenre !== 'all' ? item.genre === store.selectedGenre : item).map((row) => (
                 <TableRow
+                className={clsx({
+                    [classes.tableRow]: true,
+                    [classes.selectedRow]: store.selectedMusicToPlay === row,
+                })}
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                onClick={(e) => selectMusic(e, row)}
                 >
-                <TableCell component="th" scope="row">
+                <TableCell scope="row">
                     {row.name}
                 </TableCell>
                 <TableCell align="center">{row.genre}</TableCell>
-                <TableCell style={{width: '20px'}}>
+                <TableCell component="th" style={{width: '20px'}}>
                     <IconButton aria-label="delete" onClick={() => deleteMusic(row)}>
                         <DeleteIcon />
                     </IconButton>
