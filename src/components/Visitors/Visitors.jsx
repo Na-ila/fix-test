@@ -64,6 +64,10 @@ const Visitors = observer(() => {
                 <TableRow
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                style={
+                    store.selectedMusicToPlay ? 
+                        {backgroundColor: isMatch(store.dance[store.selectedMusicToPlay.genre], row.skills).length > 0 ? lightGreen[100] : red[100] }
+                    : null}
                 >
                 <TableCell component="th" scope="row">
                     {row.name}

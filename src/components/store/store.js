@@ -46,7 +46,7 @@ class store {
         {
             id: 8,
             name: 'Sasha',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['RnB']
         },
         {
             id: 9,
@@ -56,7 +56,7 @@ class store {
         {
             id: 10,
             name: 'Vanya',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['RnB']
         },
         {
             id: 11,
@@ -96,7 +96,7 @@ class store {
         {
             id: 18,
             name: 'Nelka',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['Pop']
         },
         {
             id: 19,
