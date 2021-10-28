@@ -1,5 +1,6 @@
 import React from 'react'
 
+import Music from './components/Music'
 import Visitors from './components/Visitors'
 import Filter from './components/Filter'
 
@@ -14,13 +15,20 @@ const useStyles = makeStyles(theme => ({
   leftBlock: {
     display: 'flex',
     flexDirection: 'column',
+    gap: 10
   },
   visitorList: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-end',
     gap: 10
-  }
+  },
+  musicList: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    gap: 10
+  },
 }))
 
 const App = () => {
@@ -29,9 +37,10 @@ const App = () => {
   return (
     <div className={classes.root}>
       <div className={classes.leftBlock}>
-        <Paper>
-          Music
-        </Paper>
+        <div className={classes.musicList}>
+          <Filter/>
+          <Music/>
+        </div>
         <Paper>
           Animation
         </Paper>

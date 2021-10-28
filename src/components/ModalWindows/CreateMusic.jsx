@@ -15,52 +15,44 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Alert from '@mui/material/Alert';
 
-const defaultSkills = {
-  "RnB": false,
-  "Hip-hop": false,
-  "Electro": false,
-  "House": false,
-  "Pop": false,
-}
+const genres = ['RnB', 'Electrodance', 'Pop']
 
-const CreateVisitor = observer(() => {
+const CreateMusic = observer(() => {
     const [name, setName] = React.useState('')
-    const [skills, setSkills] = React.useState(defaultSkills)
+    const [selectedGenre, setSelectedGenre] = React.useState('')
     const [error, setError] = React.useState(false)
 
   const handleClose = () => {
-    store.setCreateVisitorDialog(false);
+    store.setCreateMusicDialog(false);
   };
 
-  const createVisitor = () => {
-    if (name === '') {
-      setError(true)
-    } else {
-      let arr = []
-      Object.keys(skills).map(item => skills[item] ? arr = [...arr, item] : null)
-  
-      store.addVisitor({
-          id: uniqid(),
-          name,
-          skills: arr
-      })
-      store.setCreateVisitorDialog(false);
+  const createMusic = () => {
+    if (name === '' || selectedGenre === '') {
+        setError(true)
+      } else {
+        store.addMusic({
+            id: uniqid(),
+            name,
+            genre: selectedGenre
+        })
+        
+        store.setCreateMusicDialog(false);
 
-      setName('')
-      setSkills(defaultSkills)
-    }
+        setName('')
+        setSelectedGenre('')
+      }
   }
 
   return (
     <div>
       <Dialog
-        open={store.createVisitorDialog}
+        open={store.createMusicDialog}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          Создание нового посетителя 
+          Добавление нового трека
         </DialogTitle>
         <DialogContent>
             <TextField
@@ -69,27 +61,27 @@ const CreateVisitor = observer(() => {
                 size='small'
                 value={name}
                 onChange={(e) => {
-                  setName(e.target.value)
-                  setError(false)
+                    setName(e.target.value)
+                    setError(false)
                 }}
-                label='Имя'
+                label='Название'
                 style={{marginTop: 5}}
             />
             <FormGroup>
-                {Object.keys(skills).map(skill => (
-                    <FormControlLabel key={skill} control={<Checkbox 
-                        onChange={() => setSkills({
-                            ...skills,
-                            [skill]: !skills[skill]
-                        })}
-                        value={skills[skill]}
-                    />} label={skill} />
+                {genres.map(genre => (
+                    <FormControlLabel key={genre} control={<Checkbox 
+                        onChange={() => {
+                            setSelectedGenre(genre)
+                            setError(false)
+                        }}
+                        checked={selectedGenre === genre}
+                    />} label={genre} />
                 ))}
             </FormGroup>
         </DialogContent>
-        {error && <Alert severity="error">Имя не может быть пустым</Alert>}
+        {error && <Alert severity="error">{name === '' ? 'Название не может быть пустым' : 'Выберите жанр'}</Alert>}
         <DialogActions>
-          <Button onClick={createVisitor}>Создать</Button>
+          <Button onClick={createMusic}>Создать</Button>
           <Button onClick={handleClose}>Отмена</Button>
         </DialogActions>
       </Dialog>
@@ -97,4 +89,4 @@ const CreateVisitor = observer(() => {
   );
 })
 
-export default CreateVisitor
+export default CreateMusic

@@ -18,7 +18,7 @@ import { blue } from '@mui/material/colors';
 
 const useStyles = makeStyles(theme => ({
     tableContainer: {
-        maxHeight: '90vh',
+        maxHeight: '30vh',
     },
     tableHead: {
         '& th': {
@@ -29,37 +29,33 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const Visitors = observer(() => {
+const Music = observer(() => {
     const classes = useStyles()
 
-    const deleteVisitor = (visitor) => {
-        store.setDeleteDialogText({
-            id: 'visitor',
-            text: 'Вы уверены, что хотите вывести его из клуба?',
-            btn: 'Вывести'
-        })
+    const deleteMusic = (music) => {
         store.setDeleteDialog(true);
-        store.setSelectedVisitor(visitor);
+        store.setDeleteDialogText({
+            id: 'music',
+            text: 'Вы уверены, что хотите удалить этот трек?',
+            btn: 'Удалить'
+        })
+        store.setSelectedMusic(music);
     }
     
   return (
     <>
         <DeleteDialog/>
         <TableContainer className={classes.tableContainer} component={Paper}>
-        <Table size='small' stickyHeader sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table size='small' stickyHeader sx={{ minWidth: 400 }} aria-label="simple table">
             <TableHead className={classes.tableHead}>
             <TableRow>
                 <TableCell>Имя</TableCell>
-                <TableCell align="center">RnB</TableCell>
-                <TableCell align="center">Hip-hop</TableCell>
-                <TableCell align="center">Electro</TableCell>
-                <TableCell align="center">House</TableCell>
-                <TableCell align="center">Pop</TableCell>
+                <TableCell align="center">Жанр</TableCell>
                 <TableCell style={{width: '20px'}}/>
             </TableRow>
             </TableHead>
             <TableBody>
-            {store.visitorList.map((row) => (
+            {store.musicList.map((row) => (
                 <TableRow
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -67,13 +63,9 @@ const Visitors = observer(() => {
                 <TableCell component="th" scope="row">
                     {row.name}
                 </TableCell>
-                <TableCell align="center">{row.skills.includes('RnB') ? '+' : '-'}</TableCell>
-                <TableCell align="center">{row.skills.includes('Hip-hop') ? '+' : '-'}</TableCell>
-                <TableCell align="center">{row.skills.includes('Electro') ? '+' : '-'}</TableCell>
-                <TableCell align="center">{row.skills.includes('House') ? '+' : '-'}</TableCell>
-                <TableCell align="center">{row.skills.includes('Pop') ? '+' : '-'}</TableCell>
+                <TableCell align="center">{row.genre}</TableCell>
                 <TableCell style={{width: '20px'}}>
-                    <IconButton aria-label="delete" onClick={() => deleteVisitor(row)}>
+                    <IconButton aria-label="delete" onClick={() => deleteMusic(row)}>
                         <DeleteIcon />
                     </IconButton>
                 </TableCell>
@@ -86,4 +78,4 @@ const Visitors = observer(() => {
   );
 })
 
-export default Visitors
+export default Music

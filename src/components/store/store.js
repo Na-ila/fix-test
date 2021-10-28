@@ -98,11 +98,40 @@ class store {
             skills: ['RnB', 'House', 'Pop']
         },
     ]
-    musicList = []
+    musicList = [
+        {
+            id: 1,
+            name: 'track 1',
+            genre: 'RnB'
+        },
+        {
+            id: 2,
+            name: 'track 2',
+            genre: 'Pop'
+        },
+        {
+            id: 3,
+            name: 'track 3',
+            genre: 'Electro'
+        },
+        {
+            id: 4,
+            name: 'track 4',
+            genre: 'RnB'
+        },
+    ]
     createVisitorDialog = false
-    deleteVisitorDialog = false
+    createMusicDialog = false
+    deleteDialog = false
+    deleteDialogText = {
+        id: '',
+        text: '',
+        btn: ''
+    }
     selectedVisitor = null
     selectedPlace = 'all'
+    selectedMusic = null
+    selectedGenre = 'all'
     
     constructor() {
         makeAutoObservable(this, {})
@@ -128,8 +157,16 @@ class store {
         this.createVisitorDialog = value
     }
 
-    setDeleteVisitorDialog(value) {
-        this.deleteVisitorDialog = value
+    setCreateMusicDialog(value) {
+        this.createMusicDialog = value
+    }
+
+    setDeleteDialog(value) {
+        this.deleteDialog = value
+    }
+
+    setDeleteDialogText(text) {
+        this.deleteDialogText = text
     }
 
     setSelectedVisitor(visitor) {
@@ -138,6 +175,14 @@ class store {
 
     setSelectedPlace(place) {
         this.selectedPlace = place
+    }
+
+    setSelectedMusic(music) {
+        this.selectedMusic = music
+    }
+
+    setSelectedGenre(genre) {
+        this.selectedGenre = genre
     }
 
 }

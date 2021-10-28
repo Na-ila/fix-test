@@ -8,30 +8,34 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 
-const DeleteVisitor = observer(() => {
+const DeleteDialog = observer(() => {
 
   const handleClose = () => {
-    store.setDeleteVisitorDialog(false);
+    store.setDeleteDialog(false);
   };
 
   const deleteVisitor = () => {
-    store.deleteVisitor(store.selectedVisitor)
-    store.setDeleteVisitorDialog(false);
+    if (store.deleteDialogText.id === 'music') {
+      store.deleteMusic(store.selectedMusic)
+    } else {
+      store.deleteVisitor(store.selectedVisitor)
+    }
+    store.setDeleteDialog(false);
   }
 
   return (
     <div>
       <Dialog
-        open={store.deleteVisitorDialog}
+        open={store.deleteDialog}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          Вы уверены, что хотите вывести его из клуба? <br/> Это действие невозможно будет отменить.
+          {store.deleteDialogText.text}
         </DialogTitle>
         <DialogActions>
-          <Button onClick={deleteVisitor}>Вывести</Button>
+          <Button onClick={deleteVisitor}>{store.deleteDialogText.btn}</Button>
           <Button onClick={handleClose}>Отмена</Button>
         </DialogActions>
       </Dialog>
@@ -39,4 +43,4 @@ const DeleteVisitor = observer(() => {
   );
 })
 
-export default DeleteVisitor
+export default DeleteDialog
