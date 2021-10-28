@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {observer} from 'mobx-react-lite'
 
+import {isMatch} from '../App/utils'
 import store from '../store/store'
 import DeleteDialog from '../ModalWindows/DeleteDialog'
 
@@ -14,7 +15,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
-import { blue } from '@mui/material/colors';
+import { blue, red, lightGreen } from '@mui/material/colors';
 
 const useStyles = makeStyles(theme => ({
     tableContainer: {
@@ -59,7 +60,7 @@ const Visitors = observer(() => {
             </TableRow>
             </TableHead>
             <TableBody>
-            {store.visitorList.map((row) => (
+            {store.visitorList.filter(item => store.selectedPlace !== 'all' ? store.selectedPlace === 'scene' ? isMatch(store.dance[store.selectedMusicToPlay.genre], item.skills).length > 0 : isMatch(store.dance[store.selectedMusicToPlay.genre], item.skills).length === 0 : item).map((row) => (
                 <TableRow
                 key={row.id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

@@ -8,6 +8,7 @@ import CreateMusic from '../ModalWindows/CreateMusic'
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import { blue } from '@mui/material/colors';
+import Tooltip from '@mui/material/Tooltip';
 
 const Filter = observer((props) => {
 
@@ -33,20 +34,28 @@ const Filter = observer((props) => {
             <>
                 <CreateVisitor/>
                 <div style={{display: 'flex', gap: 10}}>
-                    <ButtonGroup size="small" variant="contained" aria-label="outlined primary button group">
-                        <Button
-                            style={{backgroundColor: store.selectedPlace === 'all' ? blue[900] : blue[600]}}
-                            onClick={() => selectPlace('all')}                        
-                        >Все</Button>
-                        <Button
-                            style={{backgroundColor: store.selectedPlace === 'scene' ? blue[900] : blue[600]}}
-                            onClick={() => selectPlace('scene')}                        
-                        >Танцпол</Button>
-                        <Button
-                            style={{backgroundColor: store.selectedPlace === 'bar' ? blue[900] : blue[600]}}
-                            onClick={() => selectPlace('bar')}
-                        >Бар</Button>
-                    </ButtonGroup>
+                    <Tooltip title={!store.selectedMusicToPlay ? "Выбор места недоступен, пока не играет музыка" : ''}>
+                        <ButtonGroup
+                            disabled={!store.selectedMusicToPlay}
+                            size="small"
+                            variant="contained"
+                            aria-label="outlined primary button group"
+                        >
+                            <Button
+                                style={{backgroundColor: store.selectedPlace === 'all' ? blue[900] : blue[600]}}
+                                onClick={() => selectPlace('all')}                        
+                            >Все</Button>
+                            <Button
+                                style={{backgroundColor: store.selectedPlace === 'scene' ? blue[900] : blue[600]}}
+                                onClick={() => selectPlace('scene')}                        
+                            >Танцпол</Button>
+                            <Button
+                                style={{backgroundColor: store.selectedPlace === 'bar' ? blue[900] : blue[600]}}
+                                onClick={() => selectPlace('bar')}
+                            >Бар</Button>
+                        </ButtonGroup>
+                    
+                    </Tooltip>
                     <Button
                         variant='outlined'
                         size='small'
