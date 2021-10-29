@@ -11,9 +11,9 @@ import Music from './components/Music'
 import Visitors from './components/Visitors'
 import Filter from './components/Filter'
 import CurrMusic from './components/CurrMusic'
+import Animation from './components/DanceAnim'
 
 import { makeStyles } from '@mui/styles';
-import Paper from '@mui/material/Paper';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -65,9 +65,7 @@ const App = observer(() => {
               <CurrMusic/>
             </div>
           </div>
-          <Paper>
-            Animation
-          </Paper>
+          <Animation/>
         </div>
         <div className={classes.visitorList}>
           <Filter visitorList/>
