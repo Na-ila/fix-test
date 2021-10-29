@@ -17,6 +17,7 @@ const DeleteDialog = observer(() => {
   const deleteVisitor = () => {
     if (store.deleteDialogText.id === 'music') {
       store.deleteMusic(store.selectedMusicToDelete)
+      store.setSelectedMusicToPlay(null)
     } else {
       store.deleteVisitor(store.selectedVisitor)
     }

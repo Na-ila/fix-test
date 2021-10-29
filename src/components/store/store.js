@@ -11,12 +11,12 @@ class store {
         {
             id: 1,
             name: 'Nelka',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['RnB', 'House', 'Pop', 'Electrodance', 'Hip-hop']
         },
         {
             id: 2,
             name: 'Test',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['House', 'Pop', 'Electrodance']
         },
         {
             id: 3,
@@ -26,7 +26,7 @@ class store {
         {
             id: 4,
             name: 'Moris',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['RnB', 'House', 'Pop', 'Electrodance', 'Hip-hop']
         },
         {
             id: 5,
@@ -36,12 +36,12 @@ class store {
         {
             id: 6,
             name: 'Egor',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['RnB', 'House', 'Pop', 'Electrodance', 'Hip-hop']
         },
         {
             id: 7,
             name: 'Olga',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['RnB', 'Pop', 'Electrodance']
         },
         {
             id: 8,
@@ -61,12 +61,12 @@ class store {
         {
             id: 11,
             name: 'Jack',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['RnB', 'House', 'Pop', 'Electrodance']
         },
         {
             id: 12,
             name: 'Bublik',
-            skills: ['RnB', 'House', 'Pop']
+            skills: ['RnB', 'House', 'Pop', 'Electrodance', 'Hip-hop']
         },
         {
             id: 13,
@@ -75,32 +75,32 @@ class store {
         },
         {
             id: 14,
-            name: 'Nelka',
-            skills: ['RnB', 'House', 'Pop']
+            name: 'Masha',
+            skills: ['RnB', 'Electrodance', 'Hip-hop']
         },
         {
             id: 15,
-            name: 'Nelka',
-            skills: ['RnB', 'House', 'Pop']
+            name: 'Pasha',
+            skills: ['RnB', 'House', 'Pop', 'Hip-hop']
         },
         {
             id: 16,
-            name: 'Nelka',
+            name: 'Dasha',
             skills: ['RnB', 'House', 'Pop']
         },
         {
             id: 17,
-            name: 'Nelka',
-            skills: ['RnB', 'House', 'Pop']
+            name: 'Liza',
+            skills: ['House', 'Pop', 'Electrodance', 'Hip-hop']
         },
         {
             id: 18,
-            name: 'Nelka',
+            name: 'Dima',
             skills: ['Pop']
         },
         {
             id: 19,
-            name: 'Nelka',
+            name: 'Alla',
             skills: ['RnB', 'House', 'Pop']
         },
     ]
