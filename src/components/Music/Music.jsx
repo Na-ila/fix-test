@@ -55,6 +55,7 @@ const Music = observer(() => {
     const selectMusic = (e, track) => {
         if (e.target.closest('th')) return
         store.setSelectedMusicToPlay(track)
+        store.setIsPlaying(true)
     }
     
   return (

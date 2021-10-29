@@ -139,6 +139,7 @@ class store {
     selectedPlace = 'all'
     selectedMusicToDelete = null
     selectedGenre = 'all'
+    isPlaying = false
     
     constructor() {
         makeAutoObservable(this, {})
@@ -194,6 +195,10 @@ class store {
 
     setSelectedGenre(genre) {
         this.selectedGenre = genre
+    }
+
+    setIsPlaying(value) {
+        this.isPlaying = value
     }
 
 }

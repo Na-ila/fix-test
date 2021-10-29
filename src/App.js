@@ -13,23 +13,26 @@ import Paper from '@mui/material/Paper';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    gap: 20
   },
   leftBlock: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 10
+    gap: 10,
+    width: '100%'
   },
   visitorList: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end',
-    gap: 10
+    alignItems: 'flex-start',
+    gap: 10,
   },
   musicBlock: {
     display: 'flex',
     gap: 20,
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
+    width: '100%'
   },
   musicList: {
     display: 'flex',
@@ -50,7 +53,11 @@ const App = observer(() => {
             <Filter/>
             <Music/>
           </div>
-          <CurrMusic/>
+          <div
+          style={{width: '40%'}}
+          >
+            <CurrMusic/>
+          </div>
         </div>
         <Paper>
           Animation

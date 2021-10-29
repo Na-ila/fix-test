@@ -16,7 +16,6 @@ import Skeleton from '@mui/material/Skeleton';
 const useStyles = makeStyles(theme => ({
     root: {
         marginTop: 10,
-        width: '25vw',
         padding: '10px 20px',
         display: 'flex',
         justifyContent: 'space-between',
@@ -31,7 +30,6 @@ const useStyles = makeStyles(theme => ({
 
 const CurrMusic = observer(() => {
     const classes = useStyles()
-    const [isPlaying, setIsPlaying] = React.useState(false)
 
     const previousTrack = () => {
         const currTrackIndex = store.musicList.indexOf(store.selectedMusicToPlay)
@@ -43,7 +41,7 @@ const CurrMusic = observer(() => {
     }
 
     const play = () => {
-        setIsPlaying(!isPlaying)
+        store.setIsPlaying(store.isPlaying ? false : true)
     }
 
     const nextTrack = () => {
@@ -57,7 +55,7 @@ const CurrMusic = observer(() => {
 
     return (
         <Paper className={classes.root} style={{backgroundColor: blue[100]}}>
-            <div style={{width: '60%'}}>
+            <div style={{width: '50%'}}>
                 <div className={classes.name}>
                     {store.selectedMusicToPlay ? store.selectedMusicToPlay.name : <Skeleton variant="text" width="100%"/>}
                 </div>
@@ -71,7 +69,7 @@ const CurrMusic = observer(() => {
                     <SkipPreviousIcon/>
                 </IconButton>
                 <IconButton onClick={store.selectedMusicToPlay ? play : null}>
-                    {isPlaying ? <PauseIcon/> : <PlayArrowIcon/>}
+                    {store.isPlaying ? <PauseIcon/> : <PlayArrowIcon/>}
                 </IconButton>
                 <IconButton onClick={store.selectedMusicToPlay ? nextTrack : null}>
                     <SkipNextIcon/>

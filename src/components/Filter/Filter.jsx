@@ -60,7 +60,7 @@ const Filter = observer((props) => {
                         variant='outlined'
                         size='small'
                         onClick={createVisitor}
-                    >Создать нового посетителя</Button>
+                    >Создать</Button>
                 </div>
             </>
             : 
@@ -89,7 +89,7 @@ const Filter = observer((props) => {
                         variant='outlined'
                         size='small'
                         onClick={createMusic}
-                    >Добавить новый трек</Button>
+                    >Добавить</Button>
                 </div>
             </>
             }
